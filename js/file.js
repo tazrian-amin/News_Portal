@@ -26,13 +26,17 @@ const loadNews = (categoryId) => {
         .catch(err => console.log(err))
 }
 
-// displaying news of respective categories
+// displaying news of respective categories as per most viewed news
 const displayNews = (newsArray) => {
     const totalNews = document.getElementById('total-news');
     totalNews.innerText = `${newsArray.length}`;
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
-    newsArray.forEach(newsObject => {
+
+    // arranged news array in decending order of total view 
+    const mostViewedNewsArray = newsArray.sort(function (a, b) { return b.total_view - a.total_view });
+
+    mostViewedNewsArray.forEach(newsObject => {
         const newsCard = document.createElement('div');
         newsCard.classList.add('card', 'my-3');
         newsCard.innerHTML = `
