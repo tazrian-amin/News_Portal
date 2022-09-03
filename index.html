@@ -12,61 +12,70 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="bg-dark text-white">
     <header>
         <!-- navbar -->
         <nav class="navbar">
-            <div class="container border-bottom border-secondary border-opacity-50">
-                <a class="navbar-brand fs-2 fw-bolder">The Daily News Online</a>
+            <div class="container border-bottom border-secondary border-opacity-50 pb-4">
+                <a class="text-white navbar-brand fs-2 fw-bolder">The Daily News Online</a>
                 <div class="d-flex">
-                    <button class="text-dark active btn btn-outline-info mx-2" aria-current="page"
+                    <button class="active btn btn-outline-primary text-white mx-2" aria-current="page"
                         href="index.html">News</button>
-                    <button class="text-dark btn btn-outline-info mx-2">Blog</button>
+                    <button class="btn btn-outline-primary text-white mx-2">Blog</button>
                 </div>
             </div>
         </nav>
         <!-- All news categories -->
         <ul id="news-category" class="nav justify-content-around">
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">Home</button>
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">Home</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">Breaking
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">Breaking
                     News</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">Regular
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">Regular
                     News</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">International News</button>
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">International
+                    News</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">Sports</button>
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">Sports</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">Entertainment</button>
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">Entertainment</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">Culture</button>
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">Culture</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">Arts</button>
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">Arts</button>
             </li>
             <li class="nav-item">
-                <button class="text-dark btn btn-outline-info border-0" href="#">All News</button>
+                <button class="btn btn-outline-primary text-white fw-bolder border-0" href="#">All News</button>
             </li>
         </ul>
     </header>
 
-    <main class="container my-4 py-4 bg-success">
-        <!-- news cards -->
-        <div id="news-container" class="container">
+    <main class="container my-4 py-4">
+        <!-- total news number -->
+        <section class="container">
+            <div class="container bg-white p-4 text-dark rounded">
+                <h1>Found <span id="total-news">?</span> news in this category</h1>
+            </div>
+        </section>
 
-        </div>
+        <!-- news cards -->
+        <section id="news-container" class="container">
+
+        </section>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -81,7 +90,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <!-- bootstrap js file -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

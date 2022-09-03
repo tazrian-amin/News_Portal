@@ -1,3 +1,4 @@
+// event delegated to parent element to handle it easily
 document.getElementById('news-category').addEventListener("click", function (event) {
     const clickedBtn = event.target.innerText;
     const url = `https://openapi.programming-hero.com/api/news/categories`;
@@ -8,24 +9,29 @@ document.getElementById('news-category').addEventListener("click", function (eve
             const targetObject = categoryArray.find(obj => obj.category_name === clickedBtn);
             loadNews(targetObject.category_id);
         })
+        .catch(err => {
+            console.log("Could not manage time to do the optional Home page work! That's why showing this " + err);
+        })
 })
 
+// load news data using news category id 
 const loadNews = (categoryId) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayNews(data.data))
+        .catch(err => console.log(err))
 }
 
+// displaying news of respective categories
 const displayNews = (newsArray) => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     newsArray.forEach(newsObject => {
-        // console.log(newsObject);
         const newsCard = document.createElement('div');
         newsCard.classList.add('card', 'my-3');
         newsCard.innerHTML = `
-        <div class="row g-0 p-2">
+        <div class="row g-0 p-2 text-dark">
             <div class="col-md-4 d-flex align-items-center justify-content-center">
                 <img src="${newsObject.image_url}" class="img-fluid rounded-start" alt="...">
             </div>
@@ -56,7 +62,7 @@ const displayNews = (newsArray) => {
         </div>
     `;
         newsContainer.appendChild(newsCard);
-    })
+    });
 }
 
 // load news details 
@@ -79,7 +85,8 @@ const displayNewsDetails = news => {
     <p>Rating: ${news.rating ? news.rating.number : 'No data found'}</p>
     <p>Badge: ${news.rating ? news.rating.badge : 'No data found'}</p>
     <p>Details: ${news.details}</p>
-
-    `
+    `;
 }
+
+// default news on initial page loading
 loadNews('08');
