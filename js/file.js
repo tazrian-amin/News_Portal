@@ -21,7 +21,7 @@ const displayNews = (newsArray) => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     newsArray.forEach(newsObject => {
-        console.log(newsObject);
+        // console.log(newsObject);
         const newsCard = document.createElement('div');
         newsCard.classList.add('card', 'my-3');
         newsCard.innerHTML = `
@@ -40,7 +40,7 @@ const displayNews = (newsArray) => {
                             </div>
                             <div class="mx-2">
                                 <p class="fw-bold">${newsObject.author.name}</p>
-                                <p class="text-muted">${newsObject.author.published_date.slice(0, 11)}</p>
+                                <p class="text-muted">${newsObject.author.published_date?.slice(0, 11)}</p>
                             </div>
                         </div>
                         <div>
@@ -48,7 +48,7 @@ const displayNews = (newsArray) => {
                             <span>${newsObject.total_view}</span>
                         </div>
                         <div>
-                            <a id="modal-btn" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">More <i class="fa-solid fa-arrow-right"></i></a>
+                            <a onclick="loadNewsDetails('${newsObject._id}')" id="modal-btn" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -56,14 +56,30 @@ const displayNews = (newsArray) => {
         </div>
     `;
         newsContainer.appendChild(newsCard);
-
-        const modalTitle = document.getElementById('modalTitle');
-        modalTitle.innerText = `${newsObject.title}`;
-        const modalBody = document.getElementById('modalBody');
-        modalBody.innerHTML = `
-        
-        `
     })
 }
 
+// load news details 
+const loadNewsDetails = async (news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayNewsDetails(data.data[0]);
+}
+
+// show news details on modal 
+const displayNewsDetails = news => {
+    const modalTitle = document.getElementById('modalTitle');
+    modalTitle.innerText = `${news.title}`;
+    const modalBody = document.getElementById('modalBody');
+    modalBody.innerHTML = `
+    <p>Published Date: ${news.author.published_date ? news.author.published_date : 'No published date found'}</p>
+    <p>Author's Name: ${news.author.name ? news.author.name : 'No name found'}</p>
+    <p>Total Views: ${news.total_view ? news.total_view : 'No view data found'}</p>
+    <p>Rating: ${news.rating ? news.rating.number : 'No data found'}</p>
+    <p>Badge: ${news.rating ? news.rating.badge : 'No data found'}</p>
+    <p>Details: ${news.details}</p>
+
+    `
+}
 loadNews('08');
