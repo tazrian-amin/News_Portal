@@ -17,11 +17,11 @@
         <!-- navbar -->
         <nav class="navbar">
             <div class="container border-bottom border-secondary border-opacity-50 pb-4">
-                <a class="text-white navbar-brand fs-2 fw-bolder">The Daily News Online</a>
+                <a class="text-white navbar-brand fs-1 fw-bolder">The Daily News Online</a>
                 <div class="d-flex">
-                    <button class="active btn btn-outline-primary text-white mx-2" aria-current="page"
-                        href="index.html">News</button>
-                    <button class="btn btn-outline-primary text-white mx-2">Blog</button>
+                    <a class="active btn btn-outline-primary text-white mx-2" aria-current="page"
+                        href="index.html">News</a>
+                    <a class="btn btn-outline-primary text-white mx-2" href="blog.html">Blog</a>
                 </div>
             </div>
         </nav>
@@ -64,7 +64,7 @@
         <!-- total news number -->
         <section class="container">
             <div class="container bg-white p-4 text-dark rounded">
-                <h1>Found <span id="total-news">?</span> news in this category</h1>
+                <h1 class="text-center">Found <span id="total-news" class="text-primary fw-bold"></span> news here!</h1>
             </div>
         </section>
 
@@ -73,8 +73,17 @@
 
         </section>
 
+        <!-- spinner -->
+        <section id="spinner" class="d-none">
+            <div style="height: 300px" class="d-flex justify-content-center align-items-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Modal -->
-        <section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <section class="modal fade text-dark" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -86,7 +95,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

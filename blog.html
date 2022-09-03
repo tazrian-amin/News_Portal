@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Daily News Online</title>
+    <!-- bootstrap css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- custom css link -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-dark text-white">
+    <header>
+        <!-- navbar -->
+        <nav class="navbar">
+            <div class="container border-bottom border-secondary border-opacity-50 pb-4">
+                <a class="text-white navbar-brand fs-1 fw-bolder">The Daily News Online</a>
+                <div class="d-flex">
+                    <a class="btn btn-outline-primary text-white mx-2" href="index.html">News</a>
+                    <a class="active btn btn-outline-primary text-white mx-2" aria-current="page"
+                        href="blog.html">Blog</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4 py-4">
+        <div class="container bg-white text-dark py-4 rounded">
+            <h1 class="text-center">New Blog</h1>
+            <!-- accordion -->
+            <section class="container" id="faq">
+                <div class="container pt-4">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fw-bold fs-4" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What are the differences among var, let, and const?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <table class="table table-striped table-bordered align-middle">
+                                        <thead>
+                                            <tr class="text-center fw-bold fs-4">
+                                                <th scope="col">var</th>
+                                                <th scope="col">let</th>
+                                                <th scope="col">const</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>var keyword means that it is a variable and thus the value can be
+                                                    re-assigned.
+                                                </td>
+                                                <td>let keyword means that it can let it's value be changed within the
+                                                    block scope
+                                                    where it is declared. So it can be re-assigned in certain places.
+                                                </td>
+                                                <td>const keyword means that it is a constant and thus the value cannot
+                                                    be
+                                                    re-assigned.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>variables declared with var are scoped to the immediate function
+                                                    body</td>
+                                                <td>variables declared with let are block scoped which means the
+                                                    variables will have
+                                                    scope to the immediate enclosing block.</td>
+                                                <td>variables declared with const are scoped to the immediate function
+                                                    body</td>
+                                            </tr>
+                                            <tr>
+                                                <td>variables declared with the var keyword are hoisted. Hoisting means
+                                                    that the
+                                                    variable can be accessed in their enclosing scope even before they
+                                                    are declared.
+                                                </td>
+                                                <td>variables declared with the let keyword are not hoisted.</td>
+                                                <td>variables declared with the const keyword are not hoisted.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item my-3 border">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-bold fs-4" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    What are the differences between Regular function and Arrow function?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <table class="table table-striped table-bordered align-middle">
+                                        <thead>
+                                            <tr class="text-center fw-bold fs-4">
+                                                <th scope="col">Regular Function</th>
+                                                <th scope="col">Arrow Function</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Regular functions can be created using function declarations or
+                                                    expressions.
+                                                    <br>
+                                                    Syntax-1: <code>function name(parameter){
+                                                        lines of code} </code><br>
+                                                    Syntax-2: <code>let x = function name(parameter){
+                                                        lines of code}</code>
+                                                </td>
+                                                <td>Arrow functions are created using expressions. <br>
+                                                    Syntax: <code>
+                                                        let x = (parameter) => {lines of code}
+                                                    </code></td>
+                                            </tr>
+                                            <tr>
+                                                <td> They are <strong>constructible</strong> and
+                                                    <strong>callable</strong>.
+                                                </td>
+                                                <td>They are only <strong>callable</strong>, not
+                                                    <strong>constructible</strong>.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Since regular functions are constructible, they can be called using
+                                                    the
+                                                    <strong>new</strong> keyword.
+                                                </td>
+                                                <td>Since arrow functions are not constructible, we will get a run-time
+                                                    error on
+                                                    trying to construct a non-constructible arrow functions using the
+                                                    <strong>new</strong> keyword.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Arguments objects are available in regular functions</td>
+                                                <td>Arguments objects are not available in arrow functions.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Regular functions have their own <strong>this</strong>.</td>
+                                                <td>Arrow functions do not have their own <strong>this</strong>.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item my-3 border">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold fs-4" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Why do we use template string?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p><strong>Template literals</strong>, also informally known as <strong>Template
+                                            strings</strong>, are literals
+                                        delimited with
+                                        <strong>backtick (`)</strong> characters, allowing for multi-line strings, for
+                                        string
+                                        interpolation with
+                                        embedded expressions, and more. Along with having normal strings, template
+                                        literals can also
+                                        contain other parts called <strong>placeholders</strong>, which are embedded
+                                        expressions
+                                        delimited by a
+                                        <strong>dollar sign</strong> and <strong>curly braces</strong>:
+                                        <code>${expression}</code>.
+                                        Template string is used to write multiline strings with dynamic features. Using
+                                        dynamic
+                                        values in same line as string, template string has made it easier to write codes
+                                        in minimum
+                                        time. We had to add strings with another string or value using plus signs before
+                                        template
+                                        string came with its dynamic features.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border">
+                            <h2 class="accordion-header fw-bold fs-4" id="headingFour">
+                                <button class="accordion-button collapsed fw-bold fs-4" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    What are the functionalities of map(), forEach(), filter(), and find() ?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p><strong>1.</strong> <code>.map()</code>: <strong>Morph Array
+                                            Piece-by-piece</strong> is the
+                                        elaboration of
+                                        map. It takes every
+                                        element of an array, does something with the elements, then <strong>returns a
+                                            new
+                                            array</strong> with the new
+                                        elements. map() is used only for <strong>arrays</strong>. After declaring an
+                                        array, we
+                                        have to use
+                                        .map() and pass a function as
+                                        parameter. <br><br>
+                                        <strong>Syntax:</strong> <code>const newArray = inputArray.map(function);</code>
+                                    </p>
+                                    <p><strong>2.</strong>
+                                        <code>.forEach()</code>: It takes the elements of an array and does something
+                                        <strong>without
+                                            returning anything</strong>. This process is <strong>outdated</strong> now.
+                                        <br><br>
+                                        <strong>Syntax:</strong> <code>array.forEach(function);</code>
+                                    </p>
+                                    <p><strong>3.</strong>
+                                        <code>.filter()</code>: It takes the elements of an array and <strong>does a
+                                            conditional
+                                            check</strong>, then
+                                        <strong>returns an array</strong> of elements those <strong>meet the
+                                            condition</strong>.
+                                        <br><br>
+                                        <strong>Syntax:</strong> <code>const newArray =
+                                            inputArray.filter(function);</code>
+                                    </p>
+                                    <p><strong>4.</strong>
+                                        <code>.find()</code>: It takes the elements of an array and starts to check if
+                                        any of the
+                                        element meets the <strong>condition</strong> given in function, then
+                                        <strong>returns the first
+                                            match</strong> as a
+                                        <strong>number</strong>.
+                                        <br><br>
+                                        <strong>Syntax:</strong> <code>array.find(function);</code>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- bootstrap js file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <!-- font Awesome link -->
+    <script src="https://kit.fontawesome.com/757dd7106a.js" crossorigin="anonymous"></script>
+    <!-- custom js file -->
+    <script src="js/file.js"></script>
+</body>
+
+</html>

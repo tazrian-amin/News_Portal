@@ -1,5 +1,8 @@
 // event delegated to parent element to handle it easily
 document.getElementById('news-category').addEventListener("click", function (event) {
+    // show spinner after an event occurs
+    toggleSpinner(true);
+
     const clickedBtn = event.target.innerText;
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
@@ -25,6 +28,8 @@ const loadNews = (categoryId) => {
 
 // displaying news of respective categories
 const displayNews = (newsArray) => {
+    const totalNews = document.getElementById('total-news');
+    totalNews.innerText = `${newsArray.length}`;
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     newsArray.forEach(newsObject => {
@@ -38,7 +43,7 @@ const displayNews = (newsArray) => {
             <div class="col-md-8">
                 <div class="card-body">
                     <h4 class="card-title fw-bold">${newsObject.title}</h4>
-                    <p class="card-text text-muted">${newsObject.details.slice(0, 200)}...</p>
+                    <p class="card-text text-muted">${newsObject.details?.slice(0, 200)}...</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center justify-content-center">
                             <div>
@@ -63,6 +68,9 @@ const displayNews = (newsArray) => {
     `;
         newsContainer.appendChild(newsCard);
     });
+
+    // hide spinner after loading data 
+    toggleSpinner(false);
 }
 
 // load news details 
@@ -86,6 +94,17 @@ const displayNewsDetails = news => {
     <p>Badge: ${news.rating ? news.rating.badge : 'No data found'}</p>
     <p>Details: ${news.details}</p>
     `;
+}
+
+// spinner function 
+const toggleSpinner = isLoading => {
+    const spinnerSection = document.getElementById('spinner');
+    if (isLoading === true) {
+        spinnerSection.classList.remove('d-none');
+    }
+    else {
+        spinnerSection.classList.add('d-none');
+    }
 }
 
 // default news on initial page loading
