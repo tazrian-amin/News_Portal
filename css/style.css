@@ -1,1 +1,9 @@
 /* custom css codes */
+#author-img {
+    width: 75px;
+    height: 75px;
+}
+
+#modal-btn {
+    cursor: pointer;
+}
