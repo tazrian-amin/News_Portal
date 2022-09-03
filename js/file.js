@@ -13,6 +13,7 @@ document.getElementById('news-category').addEventListener("click", function (eve
             loadNews(targetObject.category_id);
         })
         .catch(err => {
+            toggleSpinner(false);
             console.log("Could not manage time to do the optional Home page work! That's why showing this " + err);
         })
 })
@@ -23,11 +24,18 @@ const loadNews = (categoryId) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayNews(data.data))
-        .catch(err => console.log(err))
+        .catch(err => {
+            toggleSpinner(false);
+            console.log(err);
+        })
 }
 
 // displaying news of respective categories as per most viewed news
 const displayNews = (newsArray) => {
+    const defaultText = document.getElementById('default-text');
+    defaultText.classList.add('d-none');
+    const newsCount = document.getElementById('news-count');
+    newsCount.classList.remove('d-none');
     const totalNews = document.getElementById('total-news');
     totalNews.innerText = `${newsArray.length}`;
     const newsContainer = document.getElementById('news-container');
@@ -112,4 +120,4 @@ const toggleSpinner = isLoading => {
 }
 
 // default news on initial page loading
-loadNews('08');
+// loadNews('08');
