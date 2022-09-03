@@ -46,7 +46,7 @@ const displayNews = (newsArray) => {
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h4 class="card-title fw-bold">${newsObject.title}</h4>
+                    <h4 class="card-title fw-bold">${newsObject.title ? newsObject.title : 'Title Not Found'}</h4>
                     <p class="card-text text-muted">${newsObject.details?.slice(0, 200)}...</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center justify-content-center">
@@ -54,13 +54,13 @@ const displayNews = (newsArray) => {
                                 <img id="author-img" class="img-fluid rounded-circle" src="${newsObject.author.img}" alt="">
                             </div>
                             <div class="mx-2">
-                                <p class="fw-bold">${newsObject.author.name}</p>
-                                <p class="text-muted">${newsObject.author.published_date?.slice(0, 11)}</p>
+                                <p class="fw-bold">${newsObject.author.name ? newsObject.author.name : 'Name Not Found'}</p>
+                                <p class="text-muted">${newsObject.author.published_date ? newsObject.author.published_date.slice(0, 11) : 'Date Not Found'}</p>
                             </div>
                         </div>
                         <div>
                             <span><i class="fa-solid fa-eye"></i></span>
-                            <span>${newsObject.total_view}</span>
+                            <span>${newsObject.total_view ? newsObject.total_view : 'Total View Not Found'}</span>
                         </div>
                         <div>
                             <a onclick="loadNewsDetails('${newsObject._id}')" id="modal-btn" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">More <i class="fa-solid fa-arrow-right"></i></a>
